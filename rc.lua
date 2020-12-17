@@ -106,3 +106,6 @@ require("main.signals")
 -- Autostart
 require("main.autostart")
 
+-- Gaps
+require("main.gaps")
+
