@@ -1,7 +1,6 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-local client = require("awful.autofocus")
 
 local _M = {}
 local modkey = RC.vars.modkey
