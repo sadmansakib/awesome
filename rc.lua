@@ -86,10 +86,6 @@ root.keys(RC.globalkeys)
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Statusbar: Wibar
-require("deco.statusbar")
--- }}}
-
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = main.rules(

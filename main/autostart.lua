@@ -11,3 +11,7 @@ awful.spawn.with_shell(
 awful.spawn.with_shell(
     "jetbrains-toolbox --minimize"
 )
+
+awful.spawn.with_shell(
+    "~/.config/polybar/launch.sh"
+)
