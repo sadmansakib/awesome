@@ -7,7 +7,6 @@ local wibox = require("wibox")
 
 -- Custom Local Library: Common Functional Decoration
 local deco = {
-  wallpaper = require("deco.wallpaper"),
   taglist   = require("deco.taglist"),
   tasklist  = require("deco.tasklist")
 }
@@ -24,9 +23,7 @@ local _M = {}
 mytextclock = wibox.widget.textclock()
 
 awful.screen.connect_for_each_screen(function(s)
-  -- Wallpaper
-  set_wallpaper(s)
-
+  
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
 
