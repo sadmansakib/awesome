@@ -12,9 +12,6 @@ local beautiful = require("beautiful")
 -- Miscellanous awesome library
 local menubar = require("menubar")
 
--- Screenshot
-local screenshot = require("util.screenshot")
-
 RC = {} -- global namespace, on top before require any modules
 RC.vars = require("main.user-variables")
 

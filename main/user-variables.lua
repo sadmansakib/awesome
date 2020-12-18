@@ -4,24 +4,44 @@
 
 local home = os.getenv("HOME")
 
-local _M = {
-  -- This is used later as the default terminal and editor to run.
-  -- terminal = "xterm",
-  terminal = "kitty",
+local filesystem = require('gears.filesystem')
+local config_dir = filesystem.get_configuration_dir()
+local utils_dir = config_dir .. 'util/'
 
-  editor = "vim",
+return {
+
+    default = {
+    -- This is used later as the default terminal and editor to run.
+    -- terminal = "xterm",
+    terminal = "kitty",
+
+    -- Default web browser
+		web_browser = 'firefox',
+
+    editor = "vim",
    
-  -- Default modkey.
-  -- Usually, Mod4 is the key with a logo between Control and Alt.
-  -- If you do not like this or do not have such a key,
-  -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
-  -- However, you can use another modifier like Mod1, but it may interact with others.
-  modkey = "Mod4",
+    -- Default modkey.
+    -- Usually, Mod4 is the key with a logo between Control and Alt.
+    -- If you do not like this or do not have such a key,
+    -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
+    -- However, you can use another modifier like Mod1, but it may interact with others.
+    modkey = "Mod4",
 
-  -- user defined wallpaper
-  wallpaper = nil,
-  --wallpaper = home .. "/Pictures/your-wallpaper-here.jpg",
+    -- user defined wallpaper
+    wallpaper = nil,
+    --wallpaper = home .. "/Pictures/your-wallpaper-here.jpg",
+  },
+
+  -- List of binaries/shell scripts that will execute for a certain task
+	  utils = {
+		  -- Fullscreen screenshot
+		  full_screenshot = utils_dir .. 'snap full',
+		  -- Area screenshot
+		  area_screenshot = utils_dir .. 'snap area',
+		  -- Update profile picture
+		  update_profile  = utils_dir .. 'profile-image'
+	}
+  
 }
 
-return _M
 

@@ -9,8 +9,8 @@ local menubar = require("menubar")
 local client = require("awful.autofocus")
 
 -- Resource Configuration
-local modkey = RC.vars.modkey
-local terminal = RC.vars.terminal
+local modkey = RC.vars.default.modkey
+local terminal = RC.vars.default.terminal
 
 local _M = {}
 
@@ -143,14 +143,16 @@ function _M.get()
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 
-    awful.key({ }, "Print", scrot_full,
+    awful.key({ }, "Print", function ()
+        awful.spawn.easy_async_with_shell(
+            RC.vars.utils.full_screenshot, function () end)
+    end,
             {description = "Take a screenshot of entire screen", group = "screenshot"}),
-    awful.key({ modkey, }, "Print", scrot_selection,
-            {description = "Take a screenshot of selection", group = "screenshot"}),
-    awful.key({ "Shift" }, "Print", scrot_window,
-            {description = "Take a screenshot of focused window", group = "screenshot"}),
-    awful.key({ "Ctrl" }, "Print", scrot_delay,
-            {description = "Take a screenshot of delay", group = "screenshot"})
+    awful.key({ modkey, }, "Print", function ()
+        awful.spawn.easy_async_with_shell(
+            RC.vars.utils.area_screenshot, function () end)
+    end,
+            {description = "Take a screenshot of selection", group = "screenshot"})
   )
   return globalkeys
 end

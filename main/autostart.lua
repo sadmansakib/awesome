@@ -5,7 +5,7 @@ awful.spawn.with_shell(
 )
 
 awful.spawn.with_shell(
-    "picom -b --experimental-backends --dbus --config ~/.config/picom.conf"
+    "picom -b --experimental-backends --config /home/sadmansakib/.config/picom.conf"
 )
 
 awful.spawn.with_shell(
@@ -13,5 +13,5 @@ awful.spawn.with_shell(
 )
 
 awful.spawn.with_shell(
-    "~/.config/polybar/launch.sh"
+    "/home/sadmansakib/.config/polybar/launch.sh"
 )
